@@ -10,7 +10,7 @@ import {
   FaShieldAlt,
   FaHeadset,
   FaGift,
-  FaTelegram,
+  FaTelegram
 } from "react-icons/fa";
 
 const games = [
@@ -43,10 +43,12 @@ const winners = [
 export default function LandingPage() {
   return (
     <main className="lp-root">
+     
       <div className="bg-gradient" aria-hidden="true" />
       <div className="bg-pattern" aria-hidden="true" />
       <div className="bg-particles" aria-hidden="true" />
 
+     
       <header className="hero-section ">
         <div className="hero-inner">
           <h1 className="headline">
@@ -57,33 +59,35 @@ export default function LandingPage() {
             daily bonuses—designed for winners.
           </p>
 
-          <div className="icon-btn">
+        <div className="icon-btn">
+           <a
+            href="https://wa.me/919999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+            aria-label="Get your gaming ID on WhatsApp"
+          >
+            <FaWhatsapp className="btn-icon" /> 
+            Get Your ID on WhatsApp
+          </a>
             <a
-              href="https://wa.me/919999999999"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-              aria-label="Get your gaming ID on WhatsApp"
-            >
-              <FaWhatsapp className="btn-ico" />
-              Get Your ID on WhatsApp
-            </a>
-            <a
-              href="https://t.me/919999999999"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-              aria-label="Get your gaming ID on WhatsApp"
-            >
-              <FaTelegram className="btn-icon" />
-              Get Your ID on Telegram
-            </a>
-          </div>
+             href="https://t.me/919999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+            aria-label="Get your gaming ID on WhatsApp"
+          >
+            <FaTelegram className="btn-icon" /> 
+            Get Your ID on Telegram
+          </a>
+        </div>
+        
 
           <p className="micro-badge">Limited time: 100% first-deposit bonus</p>
         </div>
       </header>
 
+    
       <section className="section features">
         <div className="feature glass">
           <FaBolt className="ico" aria-hidden="true" />
@@ -107,6 +111,7 @@ export default function LandingPage() {
         </div>
       </section>
 
+      
       <section className="section games">
         <div className="section-head">
           <h2>Play the Fan Favourites</h2>
@@ -116,12 +121,7 @@ export default function LandingPage() {
         <div className="game-grid">
           {games.map((g) => (
             <article className="game-card glass" key={g.title}>
-              <img
-                src={g.img}
-                alt={`${g.title} preview`}
-                loading="lazy"
-                className="game-image"
-              />
+              <img src={g.img} alt={`${g.title} preview`} loading="lazy" className="game-image"/>
               <div className="game-info">
                 <h3>{g.title}</h3>
                 <button className="btn btn-outline">Play Now</button>
@@ -131,6 +131,7 @@ export default function LandingPage() {
         </div>
       </section>
 
+  
       <section className="section winners">
         <div className="section-head">
           <h2>Recent Big Wins</h2>
@@ -147,6 +148,7 @@ export default function LandingPage() {
         </div>
       </section>
 
+     
       <section className="section cta">
         <h2>Ready to Make Your Move?</h2>
         <a
@@ -156,13 +158,16 @@ export default function LandingPage() {
           className="btn btn-primary btn-lg"
           aria-label="Start ID on WhatsApp"
         >
-          <FaWhatsapp className="btn-ico" />
+          <FaWhatsapp className="btn-ico" /> 
           Start ID on WhatsApp
         </a>
         <p className="legal">18+ only. Play responsibly.</p>
       </section>
 
-      <footer className="footer">© 2025 ABD909 · All rights reserved</footer>
+      
+      <footer className="footer">
+        © 2025 ABD909 · All rights reserved
+      </footer>
     </main>
   );
 }
