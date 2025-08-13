@@ -10,6 +10,7 @@ import {
   FaShieldAlt,
   FaHeadset,
   FaGift,
+  FaTelegram
 } from "react-icons/fa";
 
 const games = [
@@ -22,7 +23,7 @@ const games = [
     img: slots,
   },
   {
-    title: "Live Casino",
+    title: "Latest Game",
     img: casino,
   },
   {
@@ -58,7 +59,8 @@ export default function LandingPage() {
             daily bonuses—designed for winners.
           </p>
 
-          <a
+        <div className="icon-btn">
+           <a
             href="https://wa.me/919999999999"
             target="_blank"
             rel="noopener noreferrer"
@@ -68,6 +70,18 @@ export default function LandingPage() {
             <FaWhatsapp className="btn-ico" /> 
             Get Your ID on WhatsApp
           </a>
+            <a
+            href="https://wa.me/919999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+            aria-label="Get your gaming ID on WhatsApp"
+          >
+            <FaTelegram className="btn-ico" /> 
+            Get Your ID on Telegram
+          </a>
+        </div>
+        
 
           <p className="micro-badge">Limited time: 100% first-deposit bonus</p>
         </div>
