@@ -1,0 +1,438 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@300;400;600&display=swap");
+
+:root {
+  --bg: #070914;
+  --panel: #0d1122;
+  --text: #e8eaf3;
+  --muted: #aab2cf;
+  --neon: #00fff0;
+  --neon-2: #ff3df0;
+  --accent: #25d366;
+  --gold: #ffd770;
+
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --glass: rgba(255, 255, 255, 0.06);
+  --border: 1px solid rgba(255, 255, 255, 0.08);
+
+  --btn-h: 48px;
+  --btn-pad: 0 22px;
+  --btn-r: 12px;
+  --btn-fs: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+}
+
+.lp-root {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-gradient {
+  position: fixed;
+  inset: -20vmax;
+  background: radial-gradient(
+      60vmax 60vmax at 10% 20%,
+      rgba(0, 255, 240, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      60vmax 60vmax at 90% 10%,
+      rgba(255, 61, 240, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      60vmax 60vmax at 50% 90%,
+      rgba(255, 215, 112, 0.06),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #060915, #090f24 60%, #060915 100%);
+  filter: saturate(1.2);
+  z-index: -3;
+  animation: slowPan 30s linear infinite alternate;
+}
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.25;
+  background: radial-gradient(
+      circle at 25px 25px,
+      rgba(255, 255, 255, 0.06) 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 75px 75px,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 3px
+    );
+  background-size: 100px 100px;
+  mix-blend-mode: overlay;
+}
+.bg-particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+      6px 6px at 20% 30%,
+      rgba(0, 255, 240, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      5px 5px at 70% 20%,
+      rgba(255, 61, 240, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      4px 4px at 40% 80%,
+      rgba(255, 215, 112, 0.35),
+      transparent 60%
+    );
+  animation: twinkle 7s ease-in-out infinite alternate;
+}
+
+@keyframes slowPan {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.02);
+  }
+  to {
+    transform: translate3d(-2%, -1%, 0) scale(1.04);
+  }
+}
+@keyframes twinkle {
+  0% {
+    opacity: 0.25;
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 0.45;
+    filter: blur(0.4px);
+  }
+  100% {
+    opacity: 0.3;
+    filter: blur(0px);
+  }
+}
+
+.section {
+  padding: clamp(48px, 8vw, 96px) 20px;
+  position: relative;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 90vh;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-inner {
+  max-width: 960px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./Assets//Banner_202503191331431vwd.jpg") center/cover
+    no-repeat;
+  filter: blur(4px);
+  transform: scale(1.05);
+  z-index: 0;
+}
+.headline {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+
+  font-family: Orbitron, sans-serif;
+  font-weight: 800;
+  font-size: clamp(34px, 5.2vw, 64px);
+  letter-spacing: 0.02em;
+  margin: 0 0 12px;
+  color: #fff;
+  text-shadow: 0 0 14px rgba(0, 255, 240, 0.25);
+}
+.headline span {
+  color: var(--neon-2);
+  text-shadow: 0 0 18px rgba(255, 61, 240, 0.4);
+}
+.subhead {
+  margin: 0 auto 24px;
+  max-width: 720px;
+  color: var(--muted);
+  font-size: clamp(16px, 2.2vw, 18px);
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-h);
+  padding: var(--btn-pad);
+  border-radius: var(--btn-r);
+  font-size: var(--btn-fs);
+  font-weight: 600;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.25s ease;
+  will-change: transform, box-shadow;
+}
+.btn .btn-ico {
+  margin-right: 10px;
+  font-size: 1.15em;
+}
+
+.btn-primary {
+  color: #071018;
+  background: linear-gradient(90deg, var(--neon), var(--neon-2));
+  box-shadow: 0 8px 24px rgba(0, 255, 240, 0.15),
+    0 2px 0 rgba(255, 255, 255, 0.15) inset;
+}
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 28px rgba(255, 61, 240, 0.22);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-lg {
+  --btn-h: 56px;
+  --btn-pad: 0 28px;
+  --btn-fs: 17px;
+}
+
+.micro-badge {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--gold);
+  letter-spacing: 0.2px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 2.4vw, 24px);
+}
+.glass {
+  background: var(--glass);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.feature {
+  padding: 24px 20px;
+  text-align: center;
+}
+.feature .ico {
+  font-size: 28px;
+  color: var(--neon);
+  filter: drop-shadow(0 0 6px rgba(0, 255, 240, 0.35));
+}
+.feature h3 {
+  margin: 12px 0 6px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.feature p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 26px;
+}
+.section-head h2 {
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(24px, 3.6vw, 36px);
+  margin: 0 0 6px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 255, 240, 0.18);
+}
+.section-head p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.games .game-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 2.4vw, 24px);
+}
+.game-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.game-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.game-info {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: var(--border);
+}
+.game-info h3 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+}
+.game-card:hover img {
+  transform: scale(1.08);
+}
+
+.winners .board {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.board .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+.board .row:last-child {
+  border-bottom: none;
+}
+.board .user {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.board .amount {
+  font-family: Orbitron, sans-serif;
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(37, 211, 102, 0.35);
+}
+
+.cta {
+  text-align: center;
+}
+.cta h2 {
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(26px, 4vw, 40px);
+  margin: 0 0 14px;
+}
+.legal {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer {
+  text-align: center;
+  padding: 26px 20px 42px;
+  color: #8d95b0;
+  font-size: 14px;
+}
+
+@media (max-width: 1100px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .games .game-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+  .games .game-grid {
+    grid-template-columns: 1fr;
+  }
+  .game-card img {
+    height: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-gradient,
+  .bg-particles {
+    animation: none;
+  }
+  .btn:hover {
+    transform: none;
+  }
+}
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./Assets/Banner_202503191331431vwd.jpg") center/cover
+    no-repeat;
+  filter: blur(6px) brightness(20%);
+  z-index: 0;
+}
+
+.hero-section * {
+  position: relative;
+  z-index: 1;
+}
+.game-image {
+  object-fit: cover;
+  cursor: pointer;
+}
