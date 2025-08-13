@@ -71,7 +71,7 @@ export default function LandingPage() {
             Get Your ID on WhatsApp
           </a>
             <a
-            href="https://wa.me/919999999999"
+             href="https://t.me/919999999999"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
